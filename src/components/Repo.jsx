@@ -4,18 +4,32 @@ import github from "../assets/github.png";
 
 export default function Repo({ item, index }) {
   const [languages, setLanguages] = useState([]);
+  const [total, setTotal] = useState();
+
+  const getTotal = (resp) => {
+    let res = 0;
+    for (let k in resp) {
+      res += resp[k];
+    }
+    console.log(total);
+    return res;
+  };
 
   useEffect(() => {
     axios
       .get(`https://api.github.com/repos/n-nikolin/${item.name}/languages`, {
-        headers: {
-          authorization: "token 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",
-        },
+        // headers: {
+        //   Authorization: "token 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",
+        // },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setLanguages(res.data);
-      });
+        // console.log(languages);
+        setTotal(getTotal(res.data));
+        console.log(total)
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   return (
@@ -35,10 +49,11 @@ export default function Repo({ item, index }) {
         <span className="orange-background"></span>
       </div>
       {/* TODO: return languages with values and make progressbar dynamic*/}
+      {/* <p>{console.log(getTotal(languages))}</p> */}
       {Object.entries(languages).map(([key, value], i) => {
         return (
           <p className="languages" key={i}>
-            {key}, {value}
+            {key}, {value/total*100}
           </p>
         );
       })}
