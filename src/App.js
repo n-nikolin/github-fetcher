@@ -10,7 +10,7 @@ function App() {
     axios
       .get("https://api.github.com/user/repos", {
         headers: {
-          Authorization: "Bearer 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",
+          Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
         },
       })
       .then((res) => {

@@ -18,7 +18,7 @@ export default function Repo({ item, index }) {
     axios
       .get(`https://api.github.com/repos/n-nikolin/${item.name}/languages`, {
         headers: {
-          Authorization: "Bearer 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",
+          Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
         },
       })
       .then((res) => {
@@ -57,7 +57,7 @@ export default function Repo({ item, index }) {
         {Object.entries(languages).map(([key, value], i) => {
           return (
             <li>
-              <span className="circle" id={key.toLowerCase()}></span>
+              <span key={i} className="circle" id={key.toLowerCase()}></span>
               {key}: {((value / total) * 100).toFixed(1)}%
             </li>
           );
