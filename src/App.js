@@ -8,11 +8,12 @@ function App() {
   const [projectData, setProjectData] = useState([]);
   useEffect(() => {
     axios
-      .get("https://api.github.com/users/n-nikolin/repos", {
-        // Authorization: "token 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",
+      .get("https://api.github.com/user/repos", {
+        headers: {
+          Authorization: "Bearer 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",
+        },
       })
       .then((res) => {
-        // console.log(res.data);
         setProjectData(res.data);
       });
   }, []);

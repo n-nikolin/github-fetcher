@@ -14,7 +14,7 @@ const getPercent = (respnse) => {
     // console.log(total)
     Object.entries(response).map(([k, v], i) => {
         v = v/total*100
-        console.log(k, v)
+        console.log(k, v.toFixed(2))
     })
 }
 

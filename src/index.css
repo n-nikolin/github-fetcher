@@ -1,46 +1,46 @@
 * {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background: rgb(21, 1, 45);
-    color: white;
-    height: 100vh;
-  }
-  .container{
-    display:flex;
-  }
-  
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    background-color: rgb(12, 54, 90);
-    padding: 15px;
-    width: 60ch;
-    margin:1rem auto;
-  }
-  
-  h3 {
-    width: 90%;
-  }
-  
-  .line-chart {
-    width: 90%;
-    font-size: 0;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  span {
-    display: inline-block;
-    height: 10px;
-  }
-  
-  .green-background {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(21, 1, 45);
+  color: white;
+  height: 100vh;
+}
+.container {
+  display: flex;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  background-color: rgb(12, 54, 90);
+  padding: 15px;
+  width: 60ch;
+  margin: 1rem auto;
+}
+
+h3 {
+  width: 90%;
+}
+
+.line-chart {
+  width: 90%;
+  font-size: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+span {
+  display: inline-block;
+  height: 10px;
+}
+
+/* .green-background {
     width: 84%;
     background-color: rgb(34, 207, 34);
   }
@@ -54,24 +54,51 @@
     width: 5%;
     background-color: rgb(249, 241, 13);
   }
-  
-  ul {
-    width: 90%;
-    display: inline-block;
-    padding: 0.5rem;
-    column-count: 2;
-  }
-  
-  li {
-    font-size: 1rem;
-    list-style: none;
-  }
-  
-  .circle {
-    display: inline-block;
-    height: 8px;
-    width: 8px;
-    background-color: steelblue;
-    border-radius: 50%;
-  }
-  
+   */
+
+#python {
+  background-color: blue;
+}
+
+#javascript {
+  background-color: white;
+}
+
+#css {
+  background-color: green;
+}
+
+#html {
+  background-color: yellow;
+}
+
+#scss {
+  background-color: purple;
+}
+
+#batchfile {
+  background-color: orange;
+}
+
+#mako {
+  background-color: azure;
+}
+
+ul {
+  width: 90%;
+  display: inline-block;
+  padding: 0.5rem;
+  column-count: 2;
+}
+
+li {
+  font-size: 1rem;
+  list-style: none;
+}
+
+.circle {
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+}

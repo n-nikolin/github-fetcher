@@ -12,7 +12,7 @@ def get_percent(response):
         total += v
     print(total)
     for k, v in response.items():
-        response[k] = f'{v/total*100}%'
+        response[k] = f'{format(v/total*100,".1f")}%'
     print(response)
 
 

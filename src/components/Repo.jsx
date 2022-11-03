@@ -11,23 +11,19 @@ export default function Repo({ item, index }) {
     for (let k in resp) {
       res += resp[k];
     }
-    console.log(total);
     return res;
   };
 
   useEffect(() => {
     axios
       .get(`https://api.github.com/repos/n-nikolin/${item.name}/languages`, {
-        // headers: {
-        //   Authorization: "token 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",
-        // },
+        headers: {
+          Authorization: "Bearer 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",
+        },
       })
       .then((res) => {
-        // console.log(res.data);
         setLanguages(res.data);
-        // console.log(languages);
         setTotal(getTotal(res.data));
-        console.log(total)
       })
       .catch((err) => console.log(err));
   }, []);
@@ -44,32 +40,28 @@ export default function Repo({ item, index }) {
         );
       })}
       <div className="line-chart">
-        <span className="green-background"></span>
-        <span className="red-background"></span>
-        <span className="orange-background"></span>
+        {Object.entries(languages).map(([key, value], i) => {
+          return (
+            <span
+              className="progress-bar-section"
+              key={i}
+              id={key.toLowerCase()}
+              style={{
+                width: `${(value / total) * 100}%`,
+              }}
+            ></span>
+          );
+        })}
       </div>
-      {/* TODO: return languages with values and make progressbar dynamic*/}
-      {/* <p>{console.log(getTotal(languages))}</p> */}
-      {Object.entries(languages).map(([key, value], i) => {
-        return (
-          <p className="languages" key={i}>
-            {key}, {value/total*100}
-          </p>
-        );
-      })}
       <ul>
-        <li>
-          <span className="circle"></span>
-          javascript 84%
-        </li>
-        <li>
-          <span className="circle"></span>
-          html 11%
-        </li>
-        <li>
-          <span className="circle"></span>
-          css 5%
-        </li>
+        {Object.entries(languages).map(([key, value], i) => {
+          return (
+            <li>
+              <span className="circle" id={key.toLowerCase()}></span>
+              {key}: {((value / total) * 100).toFixed(1)}%
+            </li>
+          );
+        })}
       </ul>
       <a href={item.html_url}>
         <img src={github} alt="" />
